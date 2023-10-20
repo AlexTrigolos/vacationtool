@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  status_update_mailer:
+    notify_creator:
+      vacation_status: "The vacation status has been changed."
+      status_update_message: "Your vacation for the dates %{start_date} - %{end_date} has been %{new_status}ed"
