@@ -35,3 +35,11 @@ en:
     notify_creator:
       vacation_status: "The vacation status has been changed."
       status_update_message: "Your vacation for the dates %{start_date} - %{end_date} has been %{new_status}ed"
+  vacations:
+    create:
+      success: "Vacation was successfully created."
+    update:
+      success: "Vacation was successfully updated."
+    destroy:
+      success: "Vacation was successfully destroyed."
+  end_date_after_start_date: "must be after the start date"

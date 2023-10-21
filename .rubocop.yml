@@ -1,0 +1,29 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+  - rubocop-factory_bot
+  - rubocop-capybara
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: '3.2.0'
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  CountAsOne: ['hash']
+  Exclude:
+    - 'db/migrate/20231020102538_rolify_create_roles.rb'
+
+Layout/LineLength:
+  Exclude:
+    - 'config/initializers/devise.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/development.rb'
+
+Rails/HasAndBelongsToMany:
+    Enabled: false

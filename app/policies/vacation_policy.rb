@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class VacationPolicy < ApplicationPolicy
   def new?
     !@user.admin?
@@ -10,7 +12,6 @@ class VacationPolicy < ApplicationPolicy
   def destroy?
     @user.admin?
   end
-
 
   class Scope < Scope
     def resolve

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 faker_date = Faker::Date
 
 User.create(email: 'admin@pochta.org', password: '123456').add_role(:admin)
