@@ -1,6 +1,9 @@
 <div style="display: flex; justify-content: space-between;">
   <span style="display: inline-block;"><%= link_to 'Vacation', root_path, class: 'navbar-brand' %></span>
-  <span style="display: inline-block;"><%= button_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item', id: 'confirm_logout' %></span>
-  <span style="display: inline-block;"><%= link_to "Sign up", new_user_registration_path, class: 'nav-link' %></span>
-  <span style="display: inline-block;"><%= link_to "Log in", new_user_session_path, class: 'nav-link' %></span>
+  <% if current_user.nil? %>
+    <span style="display: inline-block;"><%= link_to "Sign up", new_user_registration_path, class: 'nav-link btn btn-warning' %></span>
+    <span style="display: inline-block;"><%= link_to "Log in", new_user_session_path, class: 'nav-link btn btn-info' %></span>
+  <% else %>
+    <span style="display: inline-block;"><%= button_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-danger' %></span>
+  <% end %>
 </div>

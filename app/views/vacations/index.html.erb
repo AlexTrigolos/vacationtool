@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<p class="text-success"><%= notice %></p>
 
 <h1>Vacations</h1>
 
-<div id="vacations">
+<div class="container" id="vacations">
   <% @vacations.each do |vacation| %>
     <%= render vacation %>
     <p>
-      <%= link_to "Show this vacation", vacation %>
+      <%= link_to "Show this vacation", vacation, class: "btn btn-secondary" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New vacation", new_vacation_path unless current_user.admin? %>
+<%= link_to "New vacation", new_vacation_path, class: "btn btn-primary" unless current_user.admin? %>

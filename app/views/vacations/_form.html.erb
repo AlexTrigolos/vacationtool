@@ -1,6 +1,6 @@
-<%= form_with(model: vacation) do |form| %>
+<%= form_with(model: vacation, class: "form-horizontal") do |form| %>
   <% if vacation.errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger">
       <h2><%= pluralize(vacation.errors.count, "error") %> prohibited this vacation from being saved:</h2>
 
       <ul>
@@ -12,31 +12,41 @@
   <% end %>
 
 
-  <div>
-    <%= form.label :start_date, style: "display: block" %>
-    <%= form.date_field :start_date, readonly: current_user.admin? ? true : false %>
+  <div class="form-group">
+    <%= form.label :start_date, class: "control-label col-sm-2" %>
+    <div class="col-sm-10">
+      <%= form.date_field :start_date, class: "form-control", readonly: current_user.admin? ? true : false %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :end_date, style: "display: block" %>
-    <%= form.date_field :end_date, readonly: current_user.admin? ? true : false %>
+  <div class="form-group">
+    <%= form.label :end_date, class: "control-label col-sm-2" %>
+    <div class="col-sm-10">
+      <%= form.date_field :end_date, class: "form-control", readonly: current_user.admin? ? true : false %>
+    </div>
   </div>
 
   <% if vacation.user.present? %>
-    <div>
-      <%= form.label :email, style: "display: block" %>
-      <%= form.text_field :email, readonly: true %>
+    <div class="form-group">
+      <%= form.label :email, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.text_field :email, class: "form-control", readonly: true %>
+      </div>
     </div>
   <% end %>
 
   <% if current_user.admin? %>
-    <div>
-      <%= form.label :status, style: "display: block" %>
-      <%= select_tag :status, options_for_select(%w[created reject confirm], selected: 'created', disabled: 'created'), name: 'vacation[status]' %>
+    <div class="form-group">
+      <%= form.label :status, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= select_tag :status, options_for_select(%w[created reject confirm], selected: 'created', disabled: 'created'), name: 'vacation[status]', class: "form-control" %>
+      </div>
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= form.submit class: "btn #{params[:action] == 'new' ? 'btn-success' : 'btn-warning'}" %>
+    </div>
   </div>
 <% end %>

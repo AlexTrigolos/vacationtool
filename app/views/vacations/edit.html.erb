@@ -1,10 +1,10 @@
-<h1>Editing vacation</h1>
+<h1 class="display-4">Editing vacation</h1>
 
 <%= render "form", vacation: @vacation %>
 
 <br>
 
-<div>
-  <%= link_to "Show this vacation", @vacation %> |
-  <%= link_to "Back to vacations", vacations_path %>
+<div class="btn-group">
+  <%= link_to "Show this vacation", @vacation, class: "btn btn-primary" %>
+  <%= link_to "Back to vacations", vacations_path, class: "btn btn-secondary" %>
 </div>

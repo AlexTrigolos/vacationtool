@@ -84,6 +84,7 @@ group :test do
 end
 
 gem 'aasm'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'devise'
 gem 'faker'
 gem 'pundit'
